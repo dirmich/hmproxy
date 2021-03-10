@@ -1,0 +1,41 @@
+$TTL 1
+@		IN	SOA		ns.highmaru.com. root.highmaru.com. (
+													2018103001	; serial
+													8H	; refresh
+													2H	; retry
+													4W	; expire
+													1D	)	; minimum
+		IN	NS		ns.highmaru.com.
+		IN	NS		ns1.highmaru.com.
+
+ns		IN	A	221.143.46.59
+ns1		IN	A	58.123.192.118
+@		IN	A	221.143.46.59
+home		IN 	A	59.10.152.62
+test		IN	A	112.169.13.41
+lab		IN 	A	58.123.192.118
+*.lab		IN 	A	58.123.192.118
+_acme-challenge.lab	IN 	TXT "4Cr_G9eIkQ_Hj-d0dzmp021CNCnBwunhcYYkJQCo8oQ"
+mail		IN 	A	221.143.46.59
+ontimestudy	IN 	A	104.198.14.52
+
+; CNAME Records
+*			IN 	CNAME	@
+;fido	IN 	CNAME	@
+;ftp		IN 	CNAME	@
+;git		IN 	CNAME	@
+;jenkins	IN 	CNAME	@
+;redmine	IN 	CNAME	@
+;www		IN 	CNAME	@
+
+; MX Records
+@		IN 	MX	5	mail.highmaru.com.
+
+; TXT Records
+@		IN 	TXT	"v=spf1 ip4:221.143.46.59 ~all"
+
+; SRV Records
+
+; AAAA Records
+
+; CAA Records

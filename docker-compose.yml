@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  # hmproxy:
+  #   image: hmproxy
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+
+  pdns:
+    image: dirmich/powerdns:4.1.0
+    build: ./pdns
+    environment:
+      - PDNS_WEBSERVER_ALLOWED_FROM=0.0.0.0
+      - PDNS_API_KEY=123fhfh3421!!@
+    volumes:
+      - "./pdns_db:/pdns"
+      - "./zone:/zone"
+    ports:
+      - "53:53"
+      # - "53:53/udp"
+      - "8500:80"
+
+  admin:
+    image: ngoduykhanh/powerdns-admin:latest
+    environment: 
+        - SQLALCHEMY_DATABASE_URI=sqlite:////pdns/pdns_db.sqlite
+        - GUINCORN_TIMEOUT=60
+        - GUNICORN_WORKERS=2
+        - GUNICORN_LOGLEVEL=DEBUG
+    volumes: 
+        - ./pdns_db/:/pdns/
+    ports: 
+        - 8501:80
+    logging:
+        driver: json-file
+        options:
+          max-size: 10m

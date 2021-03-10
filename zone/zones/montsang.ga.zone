@@ -1,0 +1,31 @@
+$TTL 1
+@		IN	SOA		ns.montsang.ga. root.montsang.ga. (
+													2018103001	; serial
+													8H	; refresh
+													2H	; retry
+													4W	; expire
+													1D	)	; minimum
+		IN	NS		ns.montsang.ga.
+		IN	NS		ns1.montsang.ga.
+
+ns		IN	A	221.143.46.59
+ns1		IN	A	218.145.191.53
+@		IN 	A	218.145.191.53
+_acme-challenge	IN 	TXT "zMxyhUhIVovl8GJg3pHwExmPLXjL8Qodno3Y62JcVuE"
+mail		IN 	A	221.143.46.59
+ontimestudy	IN 	A	104.198.14.52
+
+; CNAME Records
+*			IN 	CNAME	@
+
+; MX Records
+@		IN 	MX	5	mail.montsang.ga.
+
+; TXT Records
+@		IN 	TXT	"v=spf1 ip4:221.143.46.59 ~all"
+
+; SRV Records
+
+; AAAA Records
+
+; CAA Records

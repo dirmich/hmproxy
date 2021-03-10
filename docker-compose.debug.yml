@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  hmproxy:
+    image: hmproxy
+    build:
+      context: .
+      dockerfile: ./Dockerfile
